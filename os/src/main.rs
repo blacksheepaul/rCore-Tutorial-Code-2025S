@@ -61,8 +61,8 @@ macro_rules! println {
     }
 }
 
+mod sbi;
 #[no_mangle]
-extern "C" fn _start() {
-    println!("Hello, world!");
-    sys_exit(9);
+pub fn rust_main() -> ! {
+    sbi::shutdown();
 }
