@@ -1,7 +1,9 @@
 #![no_std]
 #![no_main]
 
+mod console;
 mod lang_items;
+mod sbi;
 
 core::arch::global_asm!(include_str!("entry.asm"));
 
@@ -14,9 +16,9 @@ fn clear_bss() {
     (sbss as usize..ebss as usize).for_each(|a| unsafe { (a as *mut u8).write_volatile(0) });
 }
 
-mod sbi;
 #[no_mangle]
 pub fn rust_main() -> ! {
     clear_bss();
+    println!("Hello, RCore World!\n");
     sbi::shutdown();
 }
