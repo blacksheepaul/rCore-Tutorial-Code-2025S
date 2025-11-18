@@ -3,6 +3,8 @@
 
 mod lang_items;
 
+core::arch::global_asm!(include_str!("entry.asm"));
+
 const SYSCALL_EXIT: usize = 93;
 
 fn syscall(id: usize, args: [usize; 3]) -> isize {
