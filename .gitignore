@@ -34,3 +34,5 @@ Thumbs.db
 
 # Rust Analyzer
 .rust-analyzer/
+.claude/settings.json
+CLAUDE.md
